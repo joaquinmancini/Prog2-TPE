@@ -1,9 +1,10 @@
 
 public class CriterioMayorA implements Criterio {
 	private double numero;
-	
-	public CriterioMayorA(double numero) {
+	private String nombre;
+	public CriterioMayorA(double numero, String nombre) {
 		this.numero = numero;
+		this.nombre = nombre;
 	}
 
 	public boolean cumple (Animal a) {
