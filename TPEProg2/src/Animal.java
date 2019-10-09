@@ -35,4 +35,7 @@ public class Animal extends Conjunto{
 	public double getPesoTotal() {
 		return getPeso();
 	}
+	public boolean getCapado() {
+		return capado;
+	}
 }
