@@ -18,7 +18,9 @@ public class Animal extends Conjunto{
 		this.capado = capado;
 		this.parido = parido;
 	}
-
+	public int getId() {
+	return this.id;
+}
 
 	public int getEdad() {
 	return this.edad;
