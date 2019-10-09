@@ -9,7 +9,6 @@ public class Animal extends Conjunto{
 	int parido;
 	
 	public Animal(int id, int edad, double peso, String raza, String sexo, boolean capado, int parido) {
-		super();
 		this.id = id;
 		this.edad = edad;
 		this.peso = peso;
