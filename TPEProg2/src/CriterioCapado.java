@@ -6,8 +6,10 @@ public class CriterioCapado implements Criterio{
 		this.capado = capado;
 		this.nombre = nombre;
 	}
-	
+	public String getNombre() {
+		return nombre;
+	}
 	public boolean cumple (Animal a) {
-		return (!(a.getCapado()));
+		return (a.getCapado());
 	}
 }

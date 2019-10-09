@@ -11,12 +11,17 @@ public class Sistema {
 	}
 	
 	//preguntar
-	public ArrayList clasificarAnimal (Animal a) {
+	public ArrayList <Criterio> clasificarAnimal (Animal a) {
 		ArrayList<Criterio> clasificacion=new ArrayList<>();
 		for (int i = 0; i<criterios.size();i++) {
 			if (criterios.get(i).cumple(a))
 				clasificacion.add(criterios.get(i));
 		}
 		return clasificacion;
+	}
+	public void imprimir (ArrayList<Criterio> criterios) {
+		for (int i = 0; i < criterios.size(); i++) {
+			System.out.println(criterios.get(i).getNombre());
+		}
 	}
 }

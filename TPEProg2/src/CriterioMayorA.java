@@ -6,7 +6,9 @@ public class CriterioMayorA implements Criterio {
 		this.numero = numero;
 		this.nombre = nombre;
 	}
-
+	public String getNombre() {
+		return nombre;
+	}
 	public boolean cumple (Animal a) {
 		return (a.getEdad()>numero);
 	}

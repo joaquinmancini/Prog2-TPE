@@ -8,7 +8,9 @@ public class CriteriosOr implements Criterio {
 		this.c2 = c2;
 		this.nombre = nombre;
 	}
-
+	public String getNombre() {
+		return nombre;
+	}
 	public boolean cumple (Animal a) {
 		return (c1.cumple(a) || c2.cumple(a));
 	}
