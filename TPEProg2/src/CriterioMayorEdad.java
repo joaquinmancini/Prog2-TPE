@@ -1,9 +1,8 @@
 
-public class CriterioMenorA implements Criterio {
+public class CriterioMayorEdad implements Criterio {
 	private double numero;
 	private String nombre;
-	
-	public CriterioMenorA(double numero, String nombre) {
+	public CriterioMayorEdad(double numero, String nombre) {
 		this.numero = numero;
 		this.nombre = nombre;
 	}
@@ -11,6 +10,6 @@ public class CriterioMenorA implements Criterio {
 		return nombre;
 	}
 	public boolean cumple (Animal a) {
-		return (a.getEdad()<numero);
+		return (a.getEdad()>numero);
 	}
 }

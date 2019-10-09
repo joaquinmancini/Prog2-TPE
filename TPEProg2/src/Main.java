@@ -6,9 +6,9 @@ public class Main {
 		Sistema sis = new Sistema("Sys");
 		
 		//creamos agrupaciones PD RECORDAR MEJORAR AGRUPACIONES
-		Agrupacion ag1=new Agrupacion();
-		Agrupacion ag2=new Agrupacion();
-		Agrupacion ag3=new Agrupacion();
+		Agrupacion ag1=new Agrupacion("AG1","Rodeo");
+		Agrupacion ag2=new Agrupacion("AG2", "Empresa");
+		Agrupacion ag3=new Agrupacion("AG3", "Establecimiento");
 		
 		//Creamos 4 animales
 		Animal an1=new Animal(7,7,7,"a","s",true,7);
@@ -26,9 +26,11 @@ public class Main {
 		System.out.println(ag2.getPesoTotal());
 		
 		//añadimos criterios
-		Criterio cr1= new CriterioMayorA(8, "Lechal");
-		Criterio cr2 = new CriteriosAnd(new CriterioMayorA(8, "Mayor"), new CriterioMenorA(12, "menor a un año"), "Ternero");
+		Criterio cr1= new CriterioMayorEdad(8, "Lechal");
+		Criterio cr2 = new CriteriosAnd(new CriterioMayorEdad(8, "Mayor"), new CriterioMenorEdad(12, "menor a un año"), "Ternero");
 		Criterio cr3 = new CriterioCapado(true, "Capado");
+		//criterio de venta en proceso, todavia no funciona
+		Criterio cr4Venta = new CriterioMayorPesoPromedio(30,0, "peso prom mayor");
 		//Añadimos los criterios mencionados anteriormente a nuestro sistema
 		sis.addCriterio(cr1);
 		sis.addCriterio(cr2);
@@ -38,6 +40,8 @@ public class Main {
 		sis.imprimir(sis.clasificarAnimal(an2));
 		System.out.println("Animal 4:");
 		sis.imprimir(sis.clasificarAnimal(an4));
+		//criterio de venta todavia no funciona
+		System.out.println(ag2.sePuedenVender(cr4Venta));
 	}
 
 }

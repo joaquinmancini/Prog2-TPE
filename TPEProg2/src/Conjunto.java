@@ -8,7 +8,9 @@ public abstract class Conjunto {
 	public abstract int getEdad();
 	
 	public abstract double getPeso();
-
+	public boolean sePuedenVender(Criterio c) {
+		return false;
+	}
 	public abstract double getPesoTotal();
 	
 }
