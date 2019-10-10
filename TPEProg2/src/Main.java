@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import composite.agrupaciones.Agrupacion;
 import composite.agrupaciones.Animal;
 import interfaces.animal.Criterio;
@@ -35,14 +37,21 @@ public class Main {
 		System.out.println("Edad promedio AG: "+ag2.getEdad());
 		System.out.println("Peso total AG2: "+ag2.getPesoTotal());
 
-		//añadimos criterios
+		//aï¿½adimos criterios
 		Criterio cr1= new CriterioMayorEdad(8, "Lechal");
-		Criterio cr2 = new CriteriosAnd(new CriterioMayorEdad(8, "Mayor"), new CriterioMenorEdad(12, "menor a un año"), "Ternero");
+		Criterio cr2 = new CriteriosAnd(new CriterioMayorEdad(8, "Mayor"), new CriterioMenorEdad(12, "menor a un aï¿½o"), "Ternero");
 		Criterio cr3 = new CriterioCapado(true, "Capado");
+		ArrayList<Criterio> cr = new ArrayList<Criterio>();
+		cr.add(cr1);
+		cr.add(cr2);
+		cr.add(cr3);
 		//criterios grupales
-		CriterioGrupal cr4Ventapeso = new PromPesoSuperior(ag2.getPeso(), 5);
-		CriterioGrupal cr5VentaEdad = new PromEdadSuperior(ag2.getEdad(), 2);
-		//Añadimos los criterios mencionados anteriormente a nuestro sistema
+		CriterioGrupal cr4Ventapeso = new PromPesoSuperior(5);
+		CriterioGrupal cr5VentaEdad = new PromEdadSuperior(2);
+		ArrayList<CriterioGrupal> crgr = new ArrayList<CriterioGrupal>();
+		crgr.add(cr4Ventapeso);
+		crgr.add(cr5VentaEdad);
+		//Aï¿½adimos los criterios mencionados anteriormente a nuestro sistema
 		sis.addCriterio(cr1);
 		sis.addCriterio(cr2);
 		sis.addCriterio(cr3);
@@ -52,8 +61,7 @@ public class Main {
 		System.out.println("Animal 4:");
 		sis.imprimir(sis.clasificarAnimal(an4));
 		//criterio de venta
-		System.out.println(cr4Ventapeso.cumple());
-		System.out.println(cr5VentaEdad.cumple());
+		System.out.println(ag2.getAnimalesVenta(cr));
 	}
 
 }

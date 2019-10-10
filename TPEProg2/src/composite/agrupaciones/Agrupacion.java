@@ -2,6 +2,7 @@ package composite.agrupaciones;
 import java.util.*;
 
 import interfaces.animal.Criterio;
+
 public class Agrupacion extends Conjunto{
 	ArrayList <Conjunto>conjuntos=new ArrayList<>();
 	String nombre;
@@ -44,5 +45,17 @@ public class Agrupacion extends Conjunto{
 	public void addConjunto(Conjunto c) {
 		conjuntos.add(c);
 	}
-	
+	public ArrayList<Animal> getAnimalesVenta(ArrayList<Criterio>criterios){
+		ArrayList<Animal> aux = new ArrayList<Animal>();
+		boolean auxcondicion =false;
+		for (Animal animal : aux) {
+			for (Criterio c : criterios) {
+				if ((c.cumple(animal))) auxcondicion=true;
+				else auxcondicion = false;
+				if(auxcondicion==false) break;
+			}
+			if(auxcondicion==true) aux.add(animal);
+		}
+		return aux;
+	}
 }

@@ -22,6 +22,9 @@ public class Animal extends Conjunto{
 	return this.id;
 }
 
+	public String getRaza() {
+		return raza;
+	}
 	public int getEdad() {
 	return this.edad;
 }
