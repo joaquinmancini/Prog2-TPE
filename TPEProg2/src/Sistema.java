@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import composite.agrupaciones.Animal;
+import interfaces.animal.Criterio;
+
 public class Sistema {
 	String nombre;
 	ArrayList<Criterio> criterios=new ArrayList<>();

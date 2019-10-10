@@ -1,3 +1,5 @@
+package interfaces.animal;
+import composite.agrupaciones.Animal;
 
 public class CriteriosAnd implements Criterio{
 	Criterio c1, c2;

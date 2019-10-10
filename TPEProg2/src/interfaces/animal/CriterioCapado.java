@@ -1,3 +1,5 @@
+package interfaces.animal;
+import composite.agrupaciones.Animal;
 
 public class CriterioCapado implements Criterio{
 	private boolean capado;

@@ -1,3 +1,4 @@
+package composite.agrupaciones;
 
 public class Animal extends Conjunto{
 	private int id;

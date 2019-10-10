@@ -1,4 +1,11 @@
-
+import composite.agrupaciones.Agrupacion;
+import composite.agrupaciones.Animal;
+import interfaces.animal.Criterio;
+import interfaces.animal.CriterioCapado;
+import interfaces.animal.CriterioMayorEdad;
+import interfaces.animal.CriterioMenorEdad;
+import interfaces.animal.CriteriosAnd;
+import interfaces.grupal.*;
 public class Main {
 
 	public static void main(String[] args) {
@@ -22,15 +29,19 @@ public class Main {
 		ag3.addConjunto(an3);
 		ag2.addConjunto(ag3);
 		ag2.addConjunto(an4);
-		//imprimimos peso total de todas las vacas de la agrupacion 2
-		System.out.println(ag2.getPesoTotal());
-		
+		//imprimimos datos agrupacion 2
+		System.out.println("Peso promedi AG2: "+ag2.getPeso());
+		System.out.println("Cantidad promedio AG: "+ag2.getCantidad());
+		System.out.println("Edad promedio AG: "+ag2.getEdad());
+		System.out.println("Peso total AG2: "+ag2.getPesoTotal());
+
 		//añadimos criterios
 		Criterio cr1= new CriterioMayorEdad(8, "Lechal");
 		Criterio cr2 = new CriteriosAnd(new CriterioMayorEdad(8, "Mayor"), new CriterioMenorEdad(12, "menor a un año"), "Ternero");
 		Criterio cr3 = new CriterioCapado(true, "Capado");
-		//criterio de venta en proceso, todavia no funciona
-		Criterio cr4Venta = new CriterioMayorPesoPromedio(30,0, "peso prom mayor");
+		//criterios grupales
+		CriterioGrupal cr4Ventapeso = new PromPesoSuperior(ag2.getPeso(), 5);
+		CriterioGrupal cr5VentaEdad = new PromEdadSuperior(ag2.getEdad(), 2);
 		//Añadimos los criterios mencionados anteriormente a nuestro sistema
 		sis.addCriterio(cr1);
 		sis.addCriterio(cr2);
@@ -40,8 +51,9 @@ public class Main {
 		sis.imprimir(sis.clasificarAnimal(an2));
 		System.out.println("Animal 4:");
 		sis.imprimir(sis.clasificarAnimal(an4));
-		//criterio de venta todavia no funciona
-		System.out.println(ag2.sePuedenVender(cr4Venta));
+		//criterio de venta
+		System.out.println(cr4Ventapeso.cumple());
+		System.out.println(cr5VentaEdad.cumple());
 	}
 
 }

@@ -1,12 +1,12 @@
+import composite.agrupaciones.Animal;
+import interfaces.animal.Criterio;
 
-public class CriterioMayorPesoPromedio implements Criterio {
+public class CriterioMayorPeso implements Criterio {
 	private double peso;
-	private int cantidad;
 	private String nombre;
-	public CriterioMayorPesoPromedio(double peso,int cantidad, String nombre) {
+	public CriterioMayorPeso(double peso, String nombre) {
 		this.peso = peso;
 		this.nombre = nombre;
-		this.cantidad = cantidad;
 	}
 	public String getNombre() {
 		return nombre;

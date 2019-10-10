@@ -1,3 +1,5 @@
+package interfaces.animal;
+import composite.agrupaciones.Animal;
 
 public class CriterioMenorEdad implements Criterio {
 	private double numero;

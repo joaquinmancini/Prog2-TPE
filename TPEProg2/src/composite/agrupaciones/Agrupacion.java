@@ -1,4 +1,7 @@
+package composite.agrupaciones;
 import java.util.*;
+
+import interfaces.animal.Criterio;
 public class Agrupacion extends Conjunto{
 	ArrayList <Conjunto>conjuntos=new ArrayList<>();
 	String nombre;
@@ -42,15 +45,4 @@ public class Agrupacion extends Conjunto{
 		conjuntos.add(c);
 	}
 	
-	//para saber si se pueden vender los animales que posee
-	public boolean sePuedenVender(Criterio c) {
-		boolean aux = false;
-		for(Conjunto conj:conjuntos) {
-			aux = conj.sePuedenVender(c);
-			if (aux== false) {
-				break;
-			}
-		}
-		return aux;
-	}
 }
