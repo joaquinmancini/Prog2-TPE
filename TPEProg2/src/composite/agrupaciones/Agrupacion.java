@@ -48,8 +48,10 @@ public class Agrupacion extends Conjunto{
 	public ArrayList<Animal> getAnimalesVenta(ArrayList<Criterio>criterios){
 		ArrayList<Animal> aux = new ArrayList<Animal>();
 		boolean auxcondicion =false;
+		
 		for (Animal animal : aux) {
 			for (Criterio c : criterios) {
+				System.out.println(auxcondicion);
 				if ((c.cumple(animal))) auxcondicion=true;
 				else auxcondicion = false;
 				if(auxcondicion==false) break;

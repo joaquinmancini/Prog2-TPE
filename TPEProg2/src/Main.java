@@ -39,12 +39,10 @@ public class Main {
 
 		//a�adimos criterios
 		Criterio cr1= new CriterioMayorEdad(8, "Lechal");
-		Criterio cr2 = new CriteriosAnd(new CriterioMayorEdad(8, "Mayor"), new CriterioMenorEdad(12, "menor a un a�o"), "Ternero");
+		Criterio cr2 = new CriteriosAnd(new CriterioMayorEdad(8, "Mayor"), new CriterioMenorEdad(12, "menor a un anio"), "Ternero");
 		Criterio cr3 = new CriterioCapado(true, "Capado");
 		ArrayList<Criterio> cr = new ArrayList<Criterio>();
 		cr.add(cr1);
-		cr.add(cr2);
-		cr.add(cr3);
 		//criterios grupales
 		CriterioGrupal cr4Ventapeso = new PromPesoSuperior(5);
 		CriterioGrupal cr5VentaEdad = new PromEdadSuperior(2);
@@ -61,7 +59,7 @@ public class Main {
 		System.out.println("Animal 4:");
 		sis.imprimir(sis.clasificarAnimal(an4));
 		//criterio de venta
-		System.out.println(ag2.getAnimalesVenta(cr));
+		System.out.println(ag3.getAnimalesVenta(cr));
 	}
 
 }
