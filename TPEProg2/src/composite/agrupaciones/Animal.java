@@ -1,5 +1,9 @@
 package composite.agrupaciones;
 
+import java.util.ArrayList;
+
+import interfaces.animal.Criterio;
+
 public class Animal extends Conjunto{
 	private int id;
 	private int edad;
@@ -43,4 +47,15 @@ public class Animal extends Conjunto{
 	public boolean getCapado() {
 		return capado;
 	}
+	public ArrayList <Animal> getAnimalesVenta (Camion c){
+		ArrayList<Animal> aux = new ArrayList<Animal>();
+		if (c.sepuedecargar(this)) {
+			aux.add(this);
+			return aux;
+		}
+		else {
+			return aux;
+		}
+	}
+
 }

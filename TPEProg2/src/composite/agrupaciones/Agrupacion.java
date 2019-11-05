@@ -45,19 +45,19 @@ public class Agrupacion extends Conjunto{
 	public void addConjunto(Conjunto c) {
 		conjuntos.add(c);
 	}
-	public ArrayList<Animal> getAnimalesVenta(ArrayList<Criterio>criterios){
+	public ArrayList<Animal> getAnimalesVenta(Camion c){
 		ArrayList<Animal> aux = new ArrayList<Animal>();
-		boolean auxcondicion =false;
-		
-		for (Animal animal : aux) {
-			for (Criterio c : criterios) {
-				System.out.println(auxcondicion);
-				if ((c.cumple(animal))) auxcondicion=true;
-				else auxcondicion = false;
-				if(auxcondicion==false) break;
-			}
-			if(auxcondicion==true) aux.add(animal);
+		for (int i=0;i<conjuntos.size(); i++) {
+			aux.addAll(conjuntos.get(i).getAnimalesVenta(c));
 		}
 		return aux;
+	}
+	public void llenarCamion(Camion c) {
+		ArrayList <Animal> a = getAnimalesVenta(c);
+		for (int i=0; i<a.size();i++) {
+			if (c.cargar(a.get(i))) {
+				conjuntos.remove(a.get(i));
+			}
+		}
 	}
 }

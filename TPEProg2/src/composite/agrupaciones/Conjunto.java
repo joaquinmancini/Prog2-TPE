@@ -15,5 +15,6 @@ public abstract class Conjunto {
 		return false;
 	}
 	public abstract double getPesoTotal();
+	public abstract ArrayList <Animal> getAnimalesVenta(Camion c);
 	
 }
