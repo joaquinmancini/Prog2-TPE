@@ -2,6 +2,7 @@ package interfaces.grupal;
 
 import java.util.ArrayList;
 
+import composite.agrupaciones.Agrupacion;
 import composite.agrupaciones.Animal;
 
 public class PromPesoSuperior implements CriterioGrupal {
@@ -11,12 +12,8 @@ public class PromPesoSuperior implements CriterioGrupal {
 		this.valorComparable = valorComparable;
 	}
 
-	public boolean cumple (ArrayList<Animal>grupodeanimales) {
-		double pesoaux = 0;
-		for (Animal animal : grupodeanimales) {
-			pesoaux += animal.getPeso();
-		}
-		return (pesoaux/grupodeanimales.size()>valorComparable);
+	public boolean cumple (Agrupacion a) {
+		return (a.getPeso()>valorComparable);
 	}
 	
 }

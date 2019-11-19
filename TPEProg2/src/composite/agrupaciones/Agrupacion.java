@@ -2,6 +2,7 @@ package composite.agrupaciones;
 import java.util.*;
 
 import interfaces.animal.Criterio;
+import interfaces.grupal.CriterioGrupal;
 
 public class Agrupacion extends Conjunto{
 	ArrayList <Conjunto>conjuntos=new ArrayList<>();
@@ -45,19 +46,29 @@ public class Agrupacion extends Conjunto{
 	public void addConjunto(Conjunto c) {
 		conjuntos.add(c);
 	}
-	public ArrayList<Animal> getAnimalesVenta(Camion c){
-		ArrayList<Animal> aux = new ArrayList<Animal>();
+	public void venderAnimales(Camion c){
 		for (int i=0;i<conjuntos.size(); i++) {
-			aux.addAll(conjuntos.get(i).getAnimalesVenta(c));
+			conjuntos.get(i).venderAnimales(c);
+			
+		}
+		ArrayList <Animal> aCamion = c.getAnimales();
+		for (int i=0; i<aCamion.size();i++) {
+			conjuntos.remove(aCamion.get(i));
+		}
+	}
+	public boolean sePuedeVender(CriterioGrupal cr) {
+		return cr.cumple(this);
+	}
+
+	public ArrayList<Conjunto> getConjuntos() {
+		return conjuntos;
+	}
+	public String imprimir () {
+		String aux=this.nombre;
+		for(Conjunto con:conjuntos) {
+			aux+=con.imprimir()+"\n";
 		}
 		return aux;
 	}
-	public void llenarCamion(Camion c) {
-		ArrayList <Animal> a = getAnimalesVenta(c);
-		for (int i=0; i<a.size();i++) {
-			if (c.cargar(a.get(i))) {
-				conjuntos.remove(a.get(i));
-			}
-		}
-	}
+	
 }

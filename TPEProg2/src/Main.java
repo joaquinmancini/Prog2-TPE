@@ -56,8 +56,14 @@ public class Main {
 		System.out.println("Animal 4:");
 		sis.imprimir(sis.clasificarAnimal(an4));
 		//criterio de venta
-		Camion c1 = new Camion(6);
-		System.out.println(ag2.getAnimalesVenta(c1));
+		Camion c1 = new Camion(6,cr1);
+		System.out.println(ag2.imprimir());
+		ag2.venderAnimales(c1);
+		//SE VENDE EL ANIMAL CON ID 8
+		System.out.println("ANIMALES VENDIDOS EN CAMION");
+		System.out.println(c1.getAnimales());
+		//COMPROBACION QUE EL ANIMAL CON ID=8 ya no pertenece al conjunto
+		System.out.println(ag2.imprimir());
 	}
 
 }

@@ -47,15 +47,33 @@ public class Animal extends Conjunto{
 	public boolean getCapado() {
 		return capado;
 	}
-	public ArrayList <Animal> getAnimalesVenta (Camion c){
-		ArrayList<Animal> aux = new ArrayList<Animal>();
+	public void venderAnimales (Camion c){
 		if (c.sepuedecargar(this)) {
-			aux.add(this);
-			return aux;
-		}
-		else {
-			return aux;
+			c.cargar(this);
 		}
 	}
-
+	public String imprimir() {
+		return ""+this.getId();
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Animal other = (Animal) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
 }

@@ -11,10 +11,8 @@ public abstract class Conjunto {
 	public abstract int getEdad();
 	
 	public abstract double getPeso();
-	public boolean sePuedenVender(Criterio c) {
-		return false;
-	}
 	public abstract double getPesoTotal();
-	public abstract ArrayList <Animal> getAnimalesVenta(Camion c);
+	public abstract void venderAnimales(Camion c);
+	public abstract String imprimir();
 	
 }

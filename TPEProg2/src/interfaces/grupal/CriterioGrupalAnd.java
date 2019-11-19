@@ -2,6 +2,7 @@ package interfaces.grupal;
 
 import java.util.ArrayList;
 
+import composite.agrupaciones.Agrupacion;
 import composite.agrupaciones.Animal;
 
 public class CriterioGrupalAnd implements CriterioGrupal {
@@ -12,7 +13,7 @@ public class CriterioGrupalAnd implements CriterioGrupal {
 		this.c2 = c2;
 	}
 	
-	public boolean cumple (ArrayList<Animal>grupodeanimales) {
-		return (c1.cumple(grupodeanimales))&&(c2.cumple(grupodeanimales));
+	public boolean cumple (Agrupacion a) {
+		return (c1.cumple(a))&&(c2.cumple(a));
 	}
 }
